@@ -1,18 +1,164 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>陈小汉 - 项目总工 | 中土集团北方建设有限公司</title>
-  <meta name="description" content="陈小汉个人主页 - 中土集团北方建设有限公司项目总工，21年建筑工程从业经验，专注施工技术管理与质量控制。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="description" content="陈小汉个人主页 - 中土集团北方建设有限公司项目总工，21年建筑工程从业经验，专注施工技术管理与质量控制。">
+  <style>
+    :root {
+      --bg: #f8f9fc; --bg-alt: #ffffff; --text: #1a1a2e; --text-secondary: #555770;
+      --accent: #1e5fa0; --accent-soft: #e4eef7; --accent-dark: #164a80;
+      --border: #e2e4ed; --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.08); --radius: 12px; --radius-sm: 8px;
+      --nav-height: 64px; --hero-gradient: linear-gradient(135deg, #1a3a5c 0%, #1e5fa0 50%, #2d6a9f 100%);
+      --success: #10b981; --error: #ef4444; --tag-bg: #eef0f6; --tag-text: #4a4e69;
+      --card-bg: #ffffff; --timeline-line: #d4d8e8; --timeline-dot: var(--accent);
+    }
+    [data-theme="dark"] {
+      --bg: #0f1117; --bg-alt: #1a1b26; --text: #e0e0ef; --text-secondary: #9598b3;
+      --accent: #6da3d6; --accent-soft: #1e2840; --accent-dark: #8ab8e6;
+      --border: #2a2d42; --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+      --shadow-md: 0 8px 30px rgba(0,0,0,0.4); --hero-gradient: linear-gradient(135deg, #0d1f33 0%, #1a3a5c 50%, #1e3d5f 100%);
+      --tag-bg: #232540; --tag-text: #b0b4d0; --card-bg: #1e1f2e;
+      --timeline-line: #2e3150;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:var(--nav-height)}
+    body{font-family:"Microsoft YaHei","PingFang SC",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+    a{color:var(--accent);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-dark)}
+    .container{max-width:1100px;margin:0 auto;padding:0 24px}
+    .section{padding:100px 0}
+    .section-title{font-size:2rem;font-weight:700;text-align:center;margin-bottom:56px;position:relative}
+    .section-title::after{content:"";display:block;width:48px;height:4px;background:var(--accent);border-radius:2px;margin:12px auto 0}
+    .fade-up{opacity:0;transform:translateY(36px);transition:opacity .7s,transform .7s}
+    .fade-up.visible{opacity:1;transform:translateY(0)}
+    .nav{position:fixed;top:0;left:0;right:0;height:var(--nav-height);background:rgba(248,249,252,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:1000;transition:background .3s,border-color .3s,box-shadow .3s}
+    [data-theme="dark"] .nav{background:rgba(15,17,23,.88)}
+    .nav.scrolled{box-shadow:var(--shadow-sm)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;height:100%;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{display:flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:1.05rem}
+    .nav-logo:hover{color:var(--accent)}
+    .nav-avatar{width:34px;height:34px;border-radius:50%;background:var(--hero-gradient);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:700}
+    
+    .nav-links{display:flex;gap:6px}
+    .nav-link{padding:6px 14px;border-radius:var(--radius-sm);font-size:.9rem;color:var(--text-secondary);font-weight:500;transition:color .2s,background .2s}
+    .nav-link:hover,.nav-link.active{color:var(--accent);background:var(--accent-soft)}
+    .nav-actions{display:flex;align-items:center;gap:8px}
+    .theme-toggle{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:var(--bg-alt);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:background .2s,transform .2s}
+    .theme-toggle:hover{transform:scale(1.08)}
+    .theme-icon-moon{display:none}
+    [data-theme="dark"] .theme-icon-sun{display:none}
+    [data-theme="dark"] .theme-icon-moon{display:inline}
+    .nav-hamburger{display:none;width:38px;height:38px;border:none;background:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:5px;padding:8px}
+    .nav-hamburger span{display:block;width:20px;height:2px;background:var(--text);border-radius:1px;transition:transform .3s,opacity .3s}
+    .nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+    .nav-hamburger.open span:nth-child(2){opacity:0}
+    .nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+    .nav-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:999}
+    .nav-overlay.show{display:block}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:var(--nav-height)}
+    .hero-bg{position:absolute;inset:0;background:var(--hero-gradient);z-index:0}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 50%,rgba(255,255,255,.08) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.06) 0%,transparent 40%)}
+    .hero-content{position:relative;z-index:1;text-align:center;color:#fff;padding:40px 24px}
+    .hero-avatar-wrapper{margin-bottom:28px}
+    .hero-avatar{width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.2);border:3px solid rgba(255,255,255,.5);margin:0 auto;display:flex;align-items:center;justify-content:center;font-size:2.8rem;font-weight:700;backdrop-filter:blur(8px)}
+    
+    .hero-title{font-size:2.6rem;font-weight:700;margin-bottom:16px;line-height:1.3}
+    .hero-greeting{display:block;font-size:1.1rem;font-weight:400;opacity:.85;margin-bottom:8px}
+    .hero-cursor{font-weight:300;animation:blink 1s step-end infinite}
+    @keyframes blink{50%{opacity:0}}
+    .hero-subtitle{font-size:1.15rem;opacity:.9;margin-bottom:32px;font-weight:300}
+    .hero-tags{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:32px}
+    .hero-tag{display:inline-block;padding:5px 16px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;font-size:.85rem;font-weight:500;backdrop-filter:blur(4px)}
+    .hero-social{display:flex;justify-content:center;gap:16px;margin-bottom:48px}
+    .social-link{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;color:#fff;transition:background .2s,border-color .2s,transform .2s}
+    .social-link:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.7);transform:translateY(-2px);color:#fff}
+    .hero-scroll-hint{display:inline-flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.7);font-size:.85rem;animation:float 2.5s ease-in-out infinite}
+    .hero-scroll-hint:hover{color:#fff}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    .about{background:var(--bg-alt)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .about-text p{margin-bottom:16px;color:var(--text-secondary);font-size:1rem;line-height:1.85}
+    .about-text p:last-child{margin-bottom:0}
+    .timeline-title{font-size:1.15rem;font-weight:600;margin-bottom:24px}
+    .timeline-list{position:relative;padding-left:28px}
+    .timeline-list::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--timeline-line)}
+    .timeline-item{position:relative;margin-bottom:28px}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-dot{position:absolute;left:-28px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--timeline-dot);border:3px solid var(--bg-alt);box-shadow:0 0 0 2px var(--accent-soft)}
+    .timeline-date{display:inline-block;font-size:.8rem;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:2px 10px;border-radius:4px;margin-bottom:6px}
+    .timeline-content h4{font-size:1rem;font-weight:600;margin-bottom:4px}
+    .timeline-content p{font-size:.9rem;color:var(--text-secondary);line-height:1.6}
+    .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+    .skill-category{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:box-shadow .3s,transform .3s}
+    .skill-category:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+    .skill-category:last-child{grid-column:1/-1}
+    .skill-category-title{display:flex;align-items:center;gap:8px;font-size:1.05rem;font-weight:600;margin-bottom:20px;color:var(--accent)}
+    .skill-bars{display:flex;flex-direction:column;gap:16px}
+    .skill-bar-header{display:flex;justify-content:space-between;font-size:.88rem;margin-bottom:6px;color:var(--text-secondary)}
+    .skill-bar-header span:last-child{font-weight:600;color:var(--accent)}
+    .skill-bar{height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+    .skill-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#a78bfa);border-radius:4px;transition:width 1.2s cubic-bezier(.25,.46,.45,.94)}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:10px}
+    .skill-tag{display:inline-block;padding:6px 16px;background:var(--tag-bg);color:var(--tag-text);border-radius:20px;font-size:.88rem;font-weight:500;transition:background .2s,color .2s,transform .2s}
+    .skill-tag:hover{background:var(--accent-soft);color:var(--accent);transform:translateY(-1px)}
+    .project-filters,.blog-filters{display:flex;justify-content:center;gap:8px;margin-bottom:36px;flex-wrap:wrap}
+    .filter-btn{padding:7px 20px;border-radius:20px;border:1px solid var(--border);background:var(--bg-alt);color:var(--text-secondary);font-size:.88rem;font-weight:500;cursor:pointer;transition:all .2s}
+    .filter-btn:hover{border-color:var(--accent);color:var(--accent)}
+    .filter-btn.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+    .project-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow .3s,transform .3s}
+    .project-card:hover{box-shadow:var(--shadow-md);transform:translateY(-4px)}
+    .project-card.hidden{display:none}
+    .project-thumb{height:160px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.3rem;font-weight:600;background-size:cover;background-position:center}
+    .project-info{padding:20px}
+    .project-info h3{font-size:1.05rem;margin-bottom:8px}
+    .project-info p{font-size:.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:12px}
+    .project-tech{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+    .project-tech span{font-size:.78rem;padding:3px 10px;background:var(--tag-bg);color:var(--tag-text);border-radius:4px;font-weight:500}
+    .blog{background:var(--bg-alt)}
+    .blog-list{display:flex;flex-direction:column;gap:24px}
+    .blog-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:box-shadow .3s}
+    .blog-card:hover{box-shadow:var(--shadow-sm)}
+    .blog-card.hidden{display:none}
+    .blog-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+    .blog-date{font-size:.82rem;color:var(--text-secondary);font-weight:500}
+    .blog-tags span{font-size:.78rem;padding:3px 10px;background:var(--accent-soft);color:var(--accent);border-radius:4px;font-weight:500}
+    .blog-title{font-size:1.2rem;font-weight:600;margin-bottom:8px}
+    .blog-excerpt{font-size:.92rem;color:var(--text-secondary);line-height:1.7;margin-bottom:12px}
+    .blog-full{font-size:.92rem;color:var(--text-secondary);line-height:1.8;padding:16px 0;border-top:1px solid var(--border);margin-bottom:12px;display:none}
+    .blog-full p{margin-bottom:12px}
+    .blog-full ul,.blog-full ol{padding-left:24px;margin-bottom:12px}
+    .blog-full li{margin-bottom:6px}
+    .blog-read-more{background:none;border:none;color:var(--accent);font-size:.88rem;font-weight:600;cursor:pointer;padding:0;transition:opacity .2s}
+    .blog-read-more:hover{opacity:.7}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+    .contact-info h3{font-size:1.3rem;font-weight:600;margin-bottom:12px}
+    .contact-info>p{color:var(--text-secondary);margin-bottom:28px;line-height:1.7}
+    .contact-methods{display:flex;flex-direction:column;gap:14px}
+    .contact-method{display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:.92rem}
+    .contact-method svg{flex-shrink:0;color:var(--accent)}
+    .contact-form{display:flex;flex-direction:column;gap:18px}
+    .form-group{display:flex;flex-direction:column;gap:5px}
+    .form-group label{font-size:.88rem;font-weight:600;color:var(--text)}
+    .form-group input,.form-group textarea{padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--bg);color:var(--text);font-size:.92rem;font-family:inherit;transition:border-color .2s,box-shadow .2s;outline:none}
+    .form-group input:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+    .form-group textarea{resize:vertical;min-height:100px}
+    .form-error{font-size:.8rem;color:var(--error);min-height:1.2em}
+    .form-submit{padding:12px 28px;background:var(--accent);color:#fff;border:none;border-radius:var(--radius-sm);font-size:.95rem;font-weight:600;cursor:pointer;transition:background .2s,transform .2s;align-self:flex-start}
+    .form-submit:hover{background:var(--accent-dark);transform:translateY(-1px)}
+    .form-success{padding:12px 16px;background:rgba(16,185,129,.1);color:var(--success);border-radius:var(--radius-sm);font-size:.9rem;font-weight:500;display:none}
+    .footer{text-align:center;padding:32px 24px;border-top:1px solid var(--border);font-size:.85rem;color:var(--text-secondary)}
+    .back-to-top{position:fixed;bottom:32px;right:32px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s,visibility .3s,transform .3s;z-index:900}
+    .back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+    .back-to-top:hover{background:var(--accent-dark);transform:translateY(-2px)}
+    @media(max-width:900px){.about-grid,.skills-grid{grid-template-columns:1fr}.skill-category:last-child{grid-column:auto}.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){.section{padding:64px 0}.section-title{font-size:1.6rem;margin-bottom:40px}.nav-links{display:none;position:fixed;top:var(--nav-height);left:0;right:0;bottom:0;background:var(--bg-alt);flex-direction:column;align-items:center;justify-content:center;gap:8px;z-index:1001}.nav-links.open{display:flex}.nav-link{font-size:1.1rem;padding:12px 24px}.nav-hamburger{display:flex}.hero-title{font-size:1.8rem}.hero-avatar{width:90px;height:90px;font-size:2.2rem}.hero-subtitle{font-size:1rem}.project-grid{grid-template-columns:1fr}.back-to-top{bottom:20px;right:20px}}
+  </style>
 </head>
 <body>
-
-  <!-- ==================== 导航栏 ==================== -->
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
@@ -23,9 +169,9 @@
         <a href="#hero" class="nav-link active" data-section="hero">首页</a>
         <a href="#about" class="nav-link" data-section="about">关于我</a>
         <a href="#skills" class="nav-link" data-section="skills">技能</a>
-        <a href="#projects" class="nav-link" data-section="projects">项目</a>
-        <a href="#blog" class="nav-link" data-section="blog">博客</a>
-        <a href="#contact" class="nav-link" data-section="contact">联系</a>
+        <a href="#projects" class="nav-link" data-section="projects">项目实践</a>
+        <a href="#blog" class="nav-link" data-section="blog">技术管理思考</a>
+        <a href="#contact" class="nav-link" data-section="contact">联系与合作</a>
       </nav>
       <div class="nav-actions">
         <button class="theme-toggle" id="themeToggle" aria-label="切换暗色模式">
@@ -39,7 +185,6 @@
     </div>
   </header>
 
-  <!-- ==================== Hero 个人简介 ==================== -->
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
     <div class="hero-content fade-up">
@@ -53,18 +198,23 @@
       </h1>
       <p class="hero-subtitle">中土集团北方建设有限公司 项目总工 | 21年建筑工程从业经验</p>
       <div class="hero-tags">
+        
         <span class="hero-tag">施工技术管理</span>
+        
         <span class="hero-tag">质量控制</span>
+        
         <span class="hero-tag">技术方案编制</span>
+        
         <span class="hero-tag">数字化建造</span>
+        
       </div>
       <div class="hero-social">
+        
         <a href="mailto:chenxiaohan@example.com" class="social-link" aria-label="邮箱">
           <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-        <a href="tel:" class="social-link" aria-label="电话">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1.003 1.003 0 011.01-.24c1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.1.31.03.66-.25 1.02l-2.2 2.2z"/></svg>
-        </a>
+        
+        
       </div>
       <a href="#about" class="hero-scroll-hint">
         <span>向下滚动</span>
@@ -73,19 +223,23 @@
     </div>
   </section>
 
-  <!-- ==================== 关于我 / 时间线 ==================== -->
   <section class="section about" id="about">
     <div class="container">
       <h2 class="section-title fade-up">关于我</h2>
       <div class="about-grid">
         <div class="about-text fade-up">
+          
           <p>我是陈小汉，来自湖北宜昌，现任中土集团北方建设有限公司项目总工。自2005年投身建筑工程行业以来，已有21年从业经验，2024年7月正式加入中土集团。</p>
+          
           <p>目前负责海南东方市馥香园项目部与颐和东方安居房项目部的技术管理工作。工作内容涵盖技术方案编制、施工组织设计、QC成果报告、科研课题报告、质量红线管控等核心领域，同时积极探索数字化建造技术，自主开发网页版施工进度计划系统等工具。</p>
+          
           <p>我始终坚守一岗双责，以规范和国家政策为准绳，注重逻辑思维的严谨性。我相信技术方案的每一步都必须压实，质量红线不可逾越。在AI时代，我将AI视为战略顾问，协同思考，提升工程管理效能。</p>
+          
         </div>
         <div class="timeline fade-up">
           <h3 class="timeline-title">职业历程</h3>
           <div class="timeline-list">
+            
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -94,6 +248,7 @@
                 <p>负责海南东方市馥香园项目部、颐和东方安居房项目部技术管理，统筹施工技术方案与质量控制</p>
               </div>
             </div>
+            
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -102,6 +257,7 @@
                 <p>从基层技术员成长为项目总工，积累了丰富的施工管理、技术方案编制和质量管控经验</p>
               </div>
             </div>
+            
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
@@ -110,13 +266,13 @@
                 <p>开始建筑工程职业生涯，扎根施工一线，逐步掌握施工技术管理全流程</p>
               </div>
             </div>
+            
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 专业技能 ==================== -->
   <section class="section skills" id="skills">
     <div class="container">
       <h2 class="section-title fade-up">专业技能</h2>
@@ -127,30 +283,27 @@
             施工技术管理
           </h3>
           <div class="skill-bars">
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>施工组织设计</span><span>95%</span>
-              </div>
+              <div class="skill-bar-header"><span>施工组织设计</span><span>95%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>技术方案编制</span><span>95%</span>
-              </div>
+              <div class="skill-bar-header"><span>技术方案编制</span><span>95%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="95"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>技术交底</span><span>90%</span>
-              </div>
+              <div class="skill-bar-header"><span>技术交底</span><span>90%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>质量红线管控</span><span>90%</span>
-              </div>
+              <div class="skill-bar-header"><span>质量红线管控</span><span>90%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
             </div>
+            
           </div>
         </div>
         <div class="skill-category fade-up">
@@ -159,30 +312,27 @@
             报告与研究
           </h3>
           <div class="skill-bars">
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>QC 成果报告</span><span>90%</span>
-              </div>
+              <div class="skill-bar-header"><span>QC 成果报告</span><span>90%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>科研课题报告</span><span>85%</span>
-              </div>
+              <div class="skill-bar-header"><span>科研课题报告</span><span>85%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>论文写作</span><span>80%</span>
-              </div>
+              <div class="skill-bar-header"><span>论文写作</span><span>80%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
             </div>
+            
             <div class="skill-bar-item">
-              <div class="skill-bar-header">
-                <span>数据分析</span><span>80%</span>
-              </div>
+              <div class="skill-bar-header"><span>数据分析</span><span>80%</span></div>
               <div class="skill-bar"><div class="skill-bar-fill" data-width="80"></div></div>
             </div>
+            
           </div>
         </div>
         <div class="skill-category fade-up">
@@ -191,26 +341,36 @@
             工具 & 数字化
           </h3>
           <div class="skill-tags">
+            
             <span class="skill-tag">CAD 制图</span>
+            
             <span class="skill-tag">Excel 数据处理</span>
+            
             <span class="skill-tag">PPT 制作</span>
+            
             <span class="skill-tag">Word 文档</span>
+            
             <span class="skill-tag">Web 开发</span>
+            
             <span class="skill-tag">Python</span>
+            
             <span class="skill-tag">AI 协同办公</span>
+            
             <span class="skill-tag">BIM 技术</span>
+            
             <span class="skill-tag">进度计划系统</span>
+            
             <span class="skill-tag">规范研读</span>
+            
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 项目经历 ==================== -->
   <section class="section projects" id="projects">
     <div class="container">
-      <h2 class="section-title fade-up">项目经历</h2>
+      <h2 class="section-title fade-up">项目实践</h2>
       <div class="project-filters fade-up">
         <button class="filter-btn active" data-filter="all">全部</button>
         <button class="filter-btn" data-filter="current">在建项目</button>
@@ -218,86 +378,140 @@
         <button class="filter-btn" data-filter="research">QC &amp; 科研</button>
       </div>
       <div class="project-grid">
+        
         <div class="project-card fade-up" data-category="current">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #1e3a5f, #2d6a9f);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #1e3a5f, #2d6a9f)">
             <span>馥香园项目</span>
           </div>
           <div class="project-info">
             <h3>海南东方市馥香园项目部</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">住宅建设项目 | 项目总工</p>
             <p>住宅建设项目，负责项目技术管理全盘工作，包括施工组织设计编制、技术方案审核、质量红线管控及现场技术支持。</p>
+            
             <div class="project-tech">
-              <span>施工管理</span><span>技术方案</span><span>质量管控</span>
+              
+              <span>施工管理</span>
+              
+              <span>技术方案</span>
+              
+              <span>质量管控</span>
+              
             </div>
           </div>
         </div>
+        
         <div class="project-card fade-up" data-category="current">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #2d6a4f, #38a169);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #2d6a4f, #38a169)">
             <span>安居房项目</span>
           </div>
           <div class="project-info">
             <h3>颐和东方安居房项目部</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">安居房工程 | 项目总工</p>
             <p>安居房工程，统筹项目技术方案编制与实施，确保工程质量符合国家规范要求，落实一岗双责制度。</p>
+            
             <div class="project-tech">
-              <span>安居房</span><span>规范合规</span><span>技术统筹</span>
+              
+              <span>安居房</span>
+              
+              <span>规范合规</span>
+              
+              <span>技术统筹</span>
+              
             </div>
           </div>
         </div>
+        
         <div class="project-card fade-up" data-category="digital">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #4facfe, #00f2fe)">
             <span>数字化工具</span>
           </div>
           <div class="project-info">
             <h3>网页版施工进度计划系统</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">数字化工具开发 | 独立开发者</p>
             <p>自主开发的 Web 端施工进度管理工具，支持进度计划编制、甘特图展示、节点预警等功能，提升项目管理效率。</p>
+            
             <div class="project-tech">
-              <span>HTML</span><span>JavaScript</span><span>数据可视化</span>
+              
+              <span>HTML</span>
+              
+              <span>JavaScript</span>
+              
+              <span>数据可视化</span>
+              
             </div>
           </div>
         </div>
+        
         <div class="project-card fade-up" data-category="digital">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #667eea, #764ba2)">
             <span>实用工具</span>
           </div>
           <div class="project-info">
             <h3>混凝土强度判定工具</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">实用工具开发 | 独立开发者</p>
             <p>基于 Web 的混凝土试块强度判定工具，支持 Excel 数据导入和自动计算判定，替代手工查表，提高效率和准确性。</p>
+            
             <div class="project-tech">
-              <span>HTML</span><span>JavaScript</span><span>XLSX</span>
+              
+              <span>HTML</span>
+              
+              <span>JavaScript</span>
+              
+              <span>XLSX</span>
+              
             </div>
           </div>
         </div>
+        
         <div class="project-card fade-up" data-category="research">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #f093fb, #f5576c)">
             <span>QC成果</span>
           </div>
           <div class="project-info">
             <h3>QC 成果报告</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">质量管理研究 | 主持人</p>
             <p>主持编写多项 QC 小组成果报告，运用 PDCA 循环方法论解决施工中的质量通病，推动工程质量持续改进。</p>
+            
             <div class="project-tech">
-              <span>PDCA</span><span>质量管理</span><span>成果发布</span>
+              
+              <span>PDCA</span>
+              
+              <span>质量管理</span>
+              
+              <span>成果发布</span>
+              
             </div>
           </div>
         </div>
+        
         <div class="project-card fade-up" data-category="research">
-          <div class="project-thumb" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
+          <div class="project-thumb" style="background:linear-gradient(135deg, #a8edea, #fed6e3)">
             <span>科研课题</span>
           </div>
           <div class="project-info">
             <h3>科研课题与论文</h3>
+            <p style="font-size:.82rem;color:var(--accent);margin-bottom:6px;">学术研究 | 参与者</p>
             <p>参与多项施工技术相关科研课题研究，撰写学术论文，将实践经验转化为理论成果，推动行业技术进步。</p>
+            
             <div class="project-tech">
-              <span>课题研究</span><span>论文写作</span><span>技术创新</span>
+              
+              <span>课题研究</span>
+              
+              <span>论文写作</span>
+              
+              <span>技术创新</span>
+              
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </section>
 
-  <!-- ==================== 专业分享 ==================== -->
   <section class="section blog" id="blog">
     <div class="container">
-      <h2 class="section-title fade-up">专业分享</h2>
+      <h2 class="section-title fade-up">技术管理思考</h2>
       <div class="blog-filters fade-up">
         <button class="filter-btn active" data-filter="all">全部</button>
         <button class="filter-btn" data-filter="tech">技术管理</button>
@@ -305,26 +519,18 @@
         <button class="filter-btn" data-filter="digital">数字化建造</button>
       </div>
       <div class="blog-list">
+        
         <article class="blog-card fade-up" data-category="tech">
           <div class="blog-card-header">
-            <span class="blog-date">2026-03-15</span>
+            <span class="blog-date">2026-03-15 <span style="background:var(--accent);color:#fff;padding:1px 8px;border-radius:4px;font-size:.72rem;margin-left:6px;">置顶</span></span>
             <div class="blog-tags"><span>技术管理</span></div>
           </div>
           <h3 class="blog-title">项目总工如何压实技术方案管理</h3>
           <p class="blog-excerpt">技术方案是施工的纲领性文件，方案管理的严谨程度直接影响工程质量与安全。本文结合多年实践经验，探讨技术方案编制、审核、交底、执行的全流程管理要点...</p>
-          <div class="blog-full" style="display:none;">
-            <p>作为项目总工，技术方案管理是最核心的职责之一。一个好的技术方案不仅要符合规范要求，更要具有可操作性。</p>
-            <p><strong>方案管理四步法：</strong></p>
-            <ul>
-              <li><strong>编制阶段</strong> — 深入现场调研，结合实际情况编制，杜绝照搬照抄</li>
-              <li><strong>审核阶段</strong> — 组织专家论证，逐条审核合规性和可操作性</li>
-              <li><strong>交底阶段</strong> — 逐级交底到班组，确保每个操作工人理解方案要求</li>
-              <li><strong>执行阶段</strong> — 跟踪方案执行情况，发现问题及时纠偏</li>
-            </ul>
-            <p>每一环节都必须有据可查、有迹可循，这是总工职业操守的基本要求。</p>
-          </div>
+          <div class="blog-full"><p>作为项目总工，技术方案管理是最核心的职责之一。一个好的技术方案不仅要符合规范要求，更要具有可操作性。</p><p><strong>方案管理四步法：</strong></p><ul><li><strong>编制阶段</strong> — 深入现场调研，结合实际情况编制，杜绝照搬照抄</li><li><strong>审核阶段</strong> — 组织专家论证，逐条审核合规性和可操作性</li><li><strong>交底阶段</strong> — 逐级交底到班组，确保每个操作工人理解方案要求</li><li><strong>执行阶段</strong> — 跟踪方案执行情况，发现问题及时纠偏</li></ul><p>每一环节都必须有据可查、有迹可循，这是总工职业操守的基本要求。</p></div>
           <button class="blog-read-more">阅读全文 &darr;</button>
         </article>
+        
         <article class="blog-card fade-up" data-category="quality">
           <div class="blog-card-header">
             <span class="blog-date">2026-02-20</span>
@@ -332,17 +538,10 @@
           </div>
           <h3 class="blog-title">质量红线：不可逾越的底线思维</h3>
           <p class="blog-excerpt">质量红线是工程建设的底线，任何时候都不能触碰。本文分享在项目管理中如何建立和维护质量红线体系，确保工程质量万无一失...</p>
-          <div class="blog-full" style="display:none;">
-            <p>质量红线不是一句口号，而是一套完整的管控体系。在实际项目管理中，我总结了以下经验：</p>
-            <ol>
-              <li><strong>明确红线清单</strong> — 将国家强制性标准和公司质量要求梳理为红线清单，张贴在现场醒目位置。</li>
-              <li><strong>过程巡查制度</strong> — 建立日巡、周检、月评制度，确保质量问题早发现、早整改。</li>
-              <li><strong>责任到人</strong> — 每条红线明确责任人，出现问题一追到底。</li>
-              <li><strong>一票否决制</strong> — 触碰质量红线的行为，不论其他方面表现如何，一律严肃处理。</li>
-            </ol>
-          </div>
+          <div class="blog-full"><p>质量红线不是一句口号，而是一套完整的管控体系。在实际项目管理中，我总结了以下经验：</p><ol><li><strong>明确红线清单</strong> — 将国家强制性标准和公司质量要求梳理为红线清单，张贴在现场醒目位置。</li><li><strong>过程巡查制度</strong> — 建立日巡、周检、月评制度，确保质量问题早发现、早整改。</li><li><strong>责任到人</strong> — 每条红线明确责任人，出现问题一追到底。</li><li><strong>一票否决制</strong> — 触碰质量红线的行为，不论其他方面表现如何，一律严肃处理。</li></ol></div>
           <button class="blog-read-more">阅读全文 &darr;</button>
         </article>
+        
         <article class="blog-card fade-up" data-category="digital">
           <div class="blog-card-header">
             <span class="blog-date">2026-01-10</span>
@@ -350,55 +549,51 @@
           </div>
           <h3 class="blog-title">AI 时代，项目总工的数字化转型之路</h3>
           <p class="blog-excerpt">当 AI 技术进入建筑行业，项目总工如何借助数字化工具提升管理效能？本文分享我将 AI 作为战略顾问的实践经验...</p>
-          <div class="blog-full" style="display:none;">
-            <p>数字化浪潮正在改变建筑行业的每一个环节。作为项目总工，我选择主动拥抱变化。</p>
-            <p><strong>我的数字化实践：</strong></p>
-            <ul>
-              <li>自主开发网页版施工进度计划系统，实现甘特图可视化管理</li>
-              <li>利用 AI 辅助技术方案审核，提高方案编制效率</li>
-              <li>用 Python 脚本处理 Excel 施工数据，减少手工计算错误</li>
-              <li>开发混凝土强度判定工具，一键完成数据判定</li>
-            </ul>
-            <p>AI 不会取代项目总工，但会使用 AI 的总工一定会超越不会使用的。关键在于：让 AI 做重复性工作，让人专注于判断和决策。</p>
-          </div>
+          <div class="blog-full"><p>数字化浪潮正在改变建筑行业的每一个环节。作为项目总工，我选择主动拥抱变化。</p><p><strong>我的数字化实践：</strong></p><ul><li>自主开发网页版施工进度计划系统，实现甘特图可视化管理</li><li>利用 AI 辅助技术方案审核，提高方案编制效率</li><li>用 Python 脚本处理 Excel 施工数据，减少手工计算错误</li><li>开发混凝土强度判定工具，一键完成数据判定</li></ul><p>AI 不会取代项目总工，但会使用 AI 的总工一定会超越不会使用的。关键在于：让 AI 做重复性工作，让人专注于判断和决策。</p></div>
           <button class="blog-read-more">阅读全文 &darr;</button>
         </article>
+        
       </div>
     </div>
   </section>
 
-  <!-- ==================== 联系方式 ==================== -->
   <section class="section contact" id="contact">
     <div class="container">
-      <h2 class="section-title fade-up">联系我</h2>
+      <h2 class="section-title fade-up">联系与合作</h2>
       <div class="contact-grid">
         <div class="contact-info fade-up">
           <h3>工程合作 & 技术交流</h3>
           <p>无论是施工技术交流、项目合作还是行业探讨，都欢迎与我联系。</p>
           <div class="contact-methods">
+            
             <div class="contact-method">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span>海南省东方市</span>
             </div>
+            
+            
             <div class="contact-method">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/></svg>
               <span>中土集团北方建设有限公司</span>
             </div>
+            
+            
             <div class="contact-method">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
               <span>chenxiaohan@example.com</span>
             </div>
+            
           </div>
         </div>
         <form class="contact-form fade-up" id="contactForm" novalidate>
           <div class="form-group">
             <label for="contactName">姓名</label>
-            <input type="text" id="contactName" name="name" placeholder="你的姓名" required />
+            <input type="text" id="contactName" name="name" placeholder="你的姓名" required>
             <span class="form-error" id="nameError"></span>
           </div>
           <div class="form-group">
             <label for="contactEmail">邮箱</label>
-            <input type="email" id="contactEmail" name="email" placeholder="your-email@example.com" required />
+            <input type="email" id="contactEmail" name="email" placeholder="your-email@example.com" required>
             <span class="form-error" id="emailError"></span>
           </div>
           <div class="form-group">
@@ -407,29 +602,38 @@
             <span class="form-error" id="messageError"></span>
           </div>
           <button type="submit" class="form-submit">发送消息</button>
-          <div class="form-success" id="formSuccess" style="display:none;">
-            消息已记录！（前端演示模式，数据未实际发送）
-          </div>
+          <div class="form-success" id="formSuccess">消息已记录！（前端演示模式，数据未实际发送）</div>
         </form>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 页脚 ==================== -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 陈小汉. 中土集团北方建设有限公司 | 用专业与坚守铸就品质工程.</p>
     </div>
   </footer>
 
-  <!-- 回到顶部按钮 -->
   <button class="back-to-top" id="backToTop" aria-label="回到顶部">
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
-
-  <!-- 移动端导航遮罩 -->
   <div class="nav-overlay" id="navOverlay"></div>
 
-  <script src="js/main.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded",()=>{
+    const nav=document.getElementById("nav"),navLinks=document.getElementById("navLinks"),navHamburger=document.getElementById("navHamburger"),navOverlay=document.getElementById("navOverlay"),themeToggle=document.getElementById("themeToggle"),backToTop=document.getElementById("backToTop"),typewriterEl=document.getElementById("typewriter");
+    const sectionIds=["hero","about","skills","projects","blog","contact"],sections=sectionIds.map(id=>document.getElementById(id)),navLinkEls=document.querySelectorAll(".nav-link");
+    const typeText="陈小汉";let typeIndex=0;function typeWriter(){if(typeIndex<=typeText.length){typewriterEl.textContent=typeText.slice(0,typeIndex);typeIndex++;setTimeout(typeWriter,120)}}typeWriter();
+    let ticking=false;function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(()=>{const scrollY=window.scrollY;nav.classList.toggle("scrolled",scrollY>20);backToTop.classList.toggle("show",scrollY>400);let currentSection="hero";for(const section of sections){if(!section)continue;const top=section.offsetTop-100;if(scrollY>=top)currentSection=section.id}navLinkEls.forEach(link=>{link.classList.toggle("active",link.dataset.section===currentSection)});ticking=false})}window.addEventListener("scroll",onScroll,{passive:true});onScroll();
+    backToTop.addEventListener("click",()=>{window.scrollTo({top:0,behavior:"smooth"})});
+    function toggleMenu(open){const isOpen=open!==undefined?open:!navHamburger.classList.contains("open");navHamburger.classList.toggle("open",isOpen);navLinks.classList.toggle("open",isOpen);navOverlay.classList.toggle("show",isOpen);document.body.style.overflow=isOpen?"hidden":""}navHamburger.addEventListener("click",()=>toggleMenu());navOverlay.addEventListener("click",()=>toggleMenu(false));navLinkEls.forEach(link=>{link.addEventListener("click",()=>toggleMenu(false))});
+    const savedTheme=localStorage.getItem("theme");if(savedTheme)document.documentElement.setAttribute("data-theme",savedTheme);else if(window.matchMedia("(prefers-color-scheme:dark)").matches)document.documentElement.setAttribute("data-theme","dark");themeToggle.addEventListener("click",()=>{const isDark=document.documentElement.getAttribute("data-theme")==="dark";const next=isDark?"light":"dark";document.documentElement.setAttribute("data-theme",next);localStorage.setItem("theme",next)});
+    const fadeEls=document.querySelectorAll(".fade-up");if("IntersectionObserver"in window){const fadeObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");fadeObserver.unobserve(entry.target)}})},{threshold:.15});fadeEls.forEach(el=>fadeObserver.observe(el))}else{fadeEls.forEach(el=>el.classList.add("visible"))}
+    const barFills=document.querySelectorAll(".skill-bar-fill");if("IntersectionObserver"in window){const barObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.width=(entry.target.dataset.width||0)+"%";barObserver.unobserve(entry.target)}})},{threshold:.3});barFills.forEach(el=>barObserver.observe(el))}else{barFills.forEach(el=>{el.style.width=(el.dataset.width||0)+"%"})}
+    function setupFilter(containerSelector,cardSelector){const container=document.querySelector(containerSelector);if(!container)return;const buttons=container.querySelectorAll(".filter-btn"),cards=document.querySelectorAll(cardSelector);buttons.forEach(btn=>{btn.addEventListener("click",()=>{buttons.forEach(b=>b.classList.remove("active"));btn.classList.add("active");const filter=btn.dataset.filter;cards.forEach(card=>{if(filter==="all"||card.dataset.category===filter)card.classList.remove("hidden");else card.classList.add("hidden")})})})}setupFilter(".project-filters",".project-card");setupFilter(".blog-filters",".blog-card");
+    document.querySelectorAll(".blog-read-more").forEach(btn=>{btn.addEventListener("click",()=>{const card=btn.closest(".blog-card"),fullContent=card.querySelector(".blog-full"),isExpanded=fullContent.style.display!=="none";if(isExpanded){fullContent.style.display="none";btn.textContent="阅读全文 \u2193"}else{fullContent.style.display="block";btn.textContent="收起 \u2191"}})});
+    const contactForm=document.getElementById("contactForm"),formSuccess=document.getElementById("formSuccess");if(contactForm)contactForm.addEventListener("submit",e=>{e.preventDefault();const name=document.getElementById("contactName"),email=document.getElementById("contactEmail"),message=document.getElementById("contactMessage"),nameError=document.getElementById("nameError"),emailError=document.getElementById("emailError"),messageError=document.getElementById("messageError");let valid=true;nameError.textContent="";emailError.textContent="";messageError.textContent="";if(!name.value.trim()){nameError.textContent="请输入姓名";valid=false}if(!email.value.trim()){emailError.textContent="请输入邮箱";valid=false}else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){emailError.textContent="请输入有效的邮箱地址";valid=false}if(!message.value.trim()){messageError.textContent="请输入留言内容";valid=false}if(valid){formSuccess.style.display="block";contactForm.reset();setTimeout(()=>{formSuccess.style.display="none"},4000)}});
+  });
+  </script>
 </body>
 </html>
